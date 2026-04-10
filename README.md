@@ -1,5 +1,9 @@
 # DIO Theater Mode 🎭
 
+> [!IMPORTANT]
+> **⚠️ Aviso Importante: Modo Desenvolvedor Necessário**
+> Por se tratar de uma extensão instalada localmente (unpacked) que manipula o layout da página, o navegador pode tratá-la como um "falso-positivo" de segurança. Para que o plugin funcione normalmente, **mantenha o "Modo do Desenvolvedor" ativado** em `chrome://extensions/`.
+
 Uma extensão leve e profissional para transformar sua experiência de aprendizado na plataforma **DIO (Digital Innovation One)**. Com um único clique, remova distrações e foque 100% no conteúdo do vídeo através do **Modo Teatro/Zen**.
 
 ---

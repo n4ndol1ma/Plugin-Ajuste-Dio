@@ -1,20 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "DIO Theater Mode",
-  "version": "1.0.0",
-  "description": "Uma experiência de aprendizado focada. Expanda os vídeos da DIO para ocupar 100% da aba, eliminando distrações.",
-  "author": "Fernando Lima (n4ndol1ma)",
+  "name": "DIO Theater Mode Local",
+  "version": "1.0.1",
+  "description": "Expande o player de vídeo da DIO para ocupar toda a aba.",
   "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
   "action": {
-    "default_title": "Alternar Modo Teatro (Foco Total)"
+    "default_title": "Alternar Modo Teatro",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
   },
   "permissions": [
-    "activeTab",
-    "scripting"
+    "activeTab"
   ],
   "background": {
     "service_worker": "background.js"
@@ -31,6 +34,5 @@
         "content.js"
       ]
     }
-  ],
-  "homepage_url": "https://github.com/n4ndol1ma/plugin-ajuste-dio"
+  ]
 }

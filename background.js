@@ -1,31 +1,14 @@
 /**
  * DIO Theater Mode - Background Script
  * 
- * Atua como o "Service Worker" da extensão, rodando em background para capturar
- * o clique no ícone da extensão na barra de ferramentas e enviar comandos
- * para o Content Script da página ativa.
- * 
- * @author Fernando Lima (https://github.com/n4ndol1ma)
+ * Escuta o clique no ícone da extensão e envia o comando para o content script.
  */
 
 chrome.action.onClicked.addListener((tab) => {
-    // Verifica se a URL da aba ativa pertence ao domínio da DIO
+    // Só envia mensagem se estiver no domínio correto
     if (tab.url && tab.url.includes("web.dio.me")) {
-        
-        // Envia o comando de alternar (toggle) para o content.js
-        chrome.tabs.sendMessage(tab.id, { action: "toggle" })
-            .catch(() => {
-                /**
-                 * Mecanismo de Recuperação:
-                 * Caso o content script não esteja carregado (ex: página recém aberta ou cache),
-                 * injetamos os arquivos manualmente antes de enviar a mensagem novamente.
-                 */
-                chrome.scripting.executeScript({
-                    target: { tabId: tab.id },
-                    files: ["content.js"]
-                }).then(() => {
-                    chrome.tabs.sendMessage(tab.id, { action: "toggle" });
-                });
-            });
+        chrome.tabs.sendMessage(tab.id, { action: "toggle" }).catch((err) => {
+            console.log("Aguardando carregamento da página ou script...");
+        });
     }
 });
