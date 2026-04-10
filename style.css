@@ -1,0 +1,57 @@
+/**
+ * DIO Theater Mode - Styles
+ * 
+ * Este arquivo contém as regras de CSS que forçam o vídeo a ocupar todo o
+ * espaço disponível na janela do navegador (Viewport).
+ * 
+ * Utilizamos seletores de atributo [data-dio-zen-*] para garantir a 
+ * especificidade necessária sem depender de classes dinâmicas do React.
+ * 
+ * @author Fernando Lima (https://github.com/n4ndol1ma)
+ */
+
+/* Esconde Elementos de Distração: Header, Playlist, Sidebar, Rodapé, etc */
+[data-dio-zen-hidden="true"] {
+    display: none !important;
+}
+
+/**
+ * Estrutura de Pais: Libera o layout flexível e as restrições de largura (width) 
+ * impostas pela estrutura do React Native Web / Styled Components da DIO.
+ */
+[data-dio-zen-parent="true"] {
+    transform: none !important; 
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #000 !important;
+}
+
+/** 
+ * Elemento de Mídia (Video ou YouTube): Força a posição fixa no topo 
+ * da tela com Z-Index máximo para sobrepor qualquer outro elemento.
+ */
+[data-dio-zen-media="true"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 2147483647 !important; /* Valor máximo de Z-Index permitido pelo navegador */
+    background-color: #000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    object-fit: contain !important; /* Garante que o vídeo mantenha a proporção */
+}
+
+/* Estado de Bloqueio do Scroll: Impede que o fundo da página role enquanto assiste */
+body.dio-theater-mode {
+    overflow: hidden !important;
+    background-color: #000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
